@@ -18,6 +18,7 @@ public class Fecha extends Date {
 	public Fecha(String f) throws ParseException {
 		super();
 //		hacemos que coga muchos formatos
+		
 //		con lenght poco practico ya que si ponen 5:03 ya va mal
 //		if (f.length()==10) {
 //			this.setDMA(f);

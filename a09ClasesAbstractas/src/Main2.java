@@ -1,58 +1,53 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main2 {
 
 	static Scanner sc=new Scanner(System.in);
-
+	
 	public static void main(String[] args) {
-
-		LinkedList<PoligonoRegular> figuras = new LinkedList<PoligonoRegular>();
-		boolean salir=true;
+		
+		Controlador ctr=new Controlador();	
+		
+		
+		String opcion=null;
+		double lon=0;
 		
 		do {
-			System.out.println("Que quieres hacer");
-			System.out.println("1) Crear un cuadrado");
-			System.out.println("2) Crear un triangulo");
-			System.out.println("3) Muestra el mas grande y salir");
+			System.out.println("1) Añadir Cuadrado");
+			System.out.println("2) Añadir Triángulo");
+			System.out.println("S) Mostrar el mayor y Salir");
+			opcion = sc.nextLine();
 			
-			switch (sc.nextLine()) {
-
-			case "1":
-				System.out.println("Cual es la longitud del cuadrado");
-				Double longitudc = Double.parseDouble(sc.nextLine());
-
-				PoligonoRegular cuadrado = new Cuadrado(longitudc);
-				figuras.add(cuadrado);
-
-				break;
-
-			case "2":
-				System.out.println("Cual es la longitud del triangulo");
-				Double longitudt = Double.parseDouble(sc.nextLine());
-
-				PoligonoRegular triangulo = new Triangulo(longitudt);
-				figuras.add(triangulo);
-
-				break;
-
-			case "3":
-
-				PoligonoRegular max = null;
-
-				for (PoligonoRegular f : figuras) {
-
-					if (max == null)
-						max = f;
-
-					if (f.getArea() > max.getArea())
-						max = f;
-				}
-				System.out.println(max.getArea());
-				salir = false;
-				break;
+			if (!opcion.equalsIgnoreCase("s")) {
+				System.out.println("Logitud del lado?");
+				lon = Double.parseDouble(sc.nextLine());
 			}
-		} while (salir);
+			
+			if (opcion.equals("1")) {
+				ctr.addCuadrado(new Cuadrado(lon));
+			}
+			if (opcion.equals("2")) {
+				ctr.addTriangulo(new Triangulo(lon));
+			} 
+			
+		} while (!opcion.equalsIgnoreCase("s"));
+		
+		PoligonoRegular elMayor=ctr.getMayor();
+
+		if (elMayor==null) System.out.println("Nada que ver!!");
+		else {
+			System.out.println("Lados: "+elMayor.lados);
+			System.out.println("Longitud del lado: "+elMayor.longitud);
+			System.out.println("Perímetro: "+elMayor.getPerimetro());
+			System.out.println("Área: "+elMayor.getArea());
+		}
+		
+		ctr.guardardatos();
 	}
 
 }

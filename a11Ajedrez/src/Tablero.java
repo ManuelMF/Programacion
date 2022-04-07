@@ -18,8 +18,9 @@ public class Tablero  {
 		casillas[2][5]=new NuevaPieza(2, 5, 'B');
 		casillas[5][5]=new NuevaPieza(5, 5, 'B');
 		
-		casillas[3][4]=new Rey(3, 4, 'B');
-		casillas[4][4]=new Torre(4, 4, 'B');
+		casillas[2][4]=new Peon(2, 4, 'N');
+		casillas[4][4]=new Peon(4, 4, 'B');
+		
 		
 		casillas[0][0]=new Torre(0, 0, 'N');
 		casillas[7][0]=new Torre(7, 0, 'N');

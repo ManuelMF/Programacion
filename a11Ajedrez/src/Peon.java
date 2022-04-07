@@ -32,6 +32,12 @@ public class Peon extends Ficha {
 			if (x<7 && x+1<=7&&y-1>=0 && casillas[x+1][y-1]!=null &&  casillas[x+1][y-1].color!=this.color) posibles.add(new Posicion(x+1,y-1)); 
 			if (x>0 && x-1>=0&&y-1>=0 && casillas[x-1][y-1]!=null && casillas[x-1][y-1].color!=this.color) posibles.add(new Posicion(x-1,y-1)); 
 			
+//			matar izquierda
+			if (x-2>=0 && casillas[x-2][y]!=null && casillas[x-2][y].color!=this.color) posibles.add(new Posicion(x-2,y));
+			
+//			matar derecha
+			if (x+2<=7 && casillas[x+2][y]!=null && casillas[x+2][y].color!=this.color) posibles.add(new Posicion(x+2,y));
+			
 		} else {	
 //		Negras	
 			
@@ -43,6 +49,13 @@ public class Peon extends Ficha {
 //			matar
 			if (x>0 && x-1>=0&&y+1<8 && casillas[x-1][y+1]!=null &&  casillas[x-1][y+1].color!=this.color) posibles.add(new Posicion(x-1,y+1)); 
 			if (x<7 && x+1<8&&y+1<8 && casillas[x+1][y+1]!=null &&  casillas[x+1][y+1].color!=this.color) posibles.add(new Posicion(x+1,y+1)); 							
+			
+//			matar izquierda
+			if (x-2>=0 && casillas[x-2][y]!=null && casillas[x-2][y].color!=this.color) posibles.add(new Posicion(x-2,y));
+			
+//			matar derecha
+			if (x+2<=7 && casillas[x+2][y]!=null && casillas[x+2][y].color!=this.color) posibles.add(new Posicion(x+2,y));
+	
 		}		
 		
 		return posibles;

@@ -39,8 +39,13 @@ public class main {
 //		Collections.sort(lista, Collections.reverseOrder());
 //								ordena al reves
 		
+//		asi al ser un objeto tenemos que implementarle el comparable de vehiculos donde definimos como va a compara lo que siempre sera igual por eso creamos otros comparadores
+		Collections.sort(lista);
+//		            sort siempre usara el metodo compareto
+//		son interfaces distintas comparable -> compareTo y comparator -> compare
 		Collections.sort(lista,new comparadorFecha());
 		for (Vehiculo i:lista) System.out.println(i.modelo);
 	}
 
 }
+// en banco tambiaen hay hicimos un ej de comparableordenar metodos  esta en main linea 291

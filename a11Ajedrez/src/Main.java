@@ -47,7 +47,16 @@ public class Main {
 					
 					System.out.println("x:"+xlet);
 					System.out.println("y:");
-					y = Integer.parseInt(sc.nextLine());
+					
+					int lol=0;
+					do {
+						try {
+							y = Integer.parseInt(sc.nextLine());
+							lol=1;
+						} catch (NumberFormatException ee) {
+							System.out.println("Tiene que ser un numero");
+						}
+					} while(lol==0);
 					
 					if (t.casillas[x][y]!=null && t.casillas[x][y].color==t.tirada) movimientocorrecto=true;
 					else System.out.println("Pieza no valida");
@@ -66,9 +75,17 @@ public class Main {
 					
 					System.out.println("x:"+xxlet);
 					System.out.println("y:");
-					
-					yy = Integer.parseInt(sc.nextLine());
-					
+					yy=0;
+					int lol=0;
+					do {
+						try {
+							yy = Integer.parseInt(sc.nextLine());
+							lol=1;
+						} catch (NumberFormatException ee) {
+							System.out.println("Tiene que ser un numero");
+						}
+					} while(lol==0);
+						
 					// MIRAR SI ENRROCA parte 1 
 					int enro=0;
 					if (t.casillas[x][y].forma.equals((t.casillas[x][y].color=='B' || t.casillas[x][y].color=='b')? "\u265A":"\u2654") && t.casillas[xx][yy].forma.equals((t.casillas[x][y].color=='B' || t.casillas[x][y].color=='b')? "\u265C":"\u2656")) {

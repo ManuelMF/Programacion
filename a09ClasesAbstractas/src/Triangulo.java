@@ -1,5 +1,7 @@
+import java.io.Serializable;
+
 //     te obliga a meter el metodo abstract
-public class Triangulo extends PoligonoRegular{
+public class Triangulo extends PoligonoRegular implements Serializable{
 	
 	public Triangulo(double l) {
 		super(3,l);
